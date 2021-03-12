@@ -18,6 +18,8 @@
 
         let title = "React page"
         let message = "メッセージを表示します。"
+        let content = `これが、trueのときに表示されます`
+        let flg = true;
 
         const msg_s = {
             fontSize: "20pt",
@@ -45,6 +47,11 @@
                     {printMsg('次のメッセージ', 24, '#aaa')}
                     {printMsg('最後のメッセージ', 12, '#666')}
                 </div>
+                {flg &&
+                    <div className="alert alert-primary mt-3">
+                        <p>{content}</p>
+                    </div>
+                }
             </div>    
         )
         ReactDOM.render(el, dom)
