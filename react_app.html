@@ -15,13 +15,21 @@
     </div>
     <script type="text/babel">
         let dom = document.querySelector('#root')
+
         let title = "New title"
         let message = "New message."
         let link = "https://www.google.com/"
+
+        const msg_s = {
+            fontSize: "20pt",
+            color: "red",
+            border: "1px solid blue"            
+        }
+
         let el = (
             <div className="alert alert-primary">
                 <h2>{title}</h2>
-                <p>{message}</p>
+                <p style={msg_s}>{message}</p>
                 <a href={link}>This is link!</a>
             </div>    
         )
