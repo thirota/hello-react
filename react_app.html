@@ -30,6 +30,12 @@
             {name:'Kumi', mail:'kumi@class', age:56},
         ]
 
+        let site = {
+            url: 'https://www.google.com',
+            title: 'Google',
+            caption: 'これは Google の検索サイトです'
+        }
+
         const msg_s = {
             fontSize: "20pt",
             fontWeight: "bold",
@@ -83,6 +89,20 @@
                         ))}
                     </tbody>
                 </table>
+
+                {(()=>
+                    <div className="card mt-4">
+                        <div className="card-header">
+                            {site.title}
+                        </div>
+                        <div className="card-body">
+                            {site.caption}
+                        </div>
+                        <div className="card-footer">
+                            <a href={site.url}>{site.title}に移動</a>
+                        </div>
+                    </div>
+                )()}
             </div>    
         )
         ReactDOM.render(el, dom)
