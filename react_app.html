@@ -17,10 +17,12 @@
         let dom = document.querySelector('#root')
         let title = "New title"
         let message = "New message."
+        let link = "https://www.google.com/"
         let el = (
             <div className="alert alert-primary">
                 <h2>{title}</h2>
                 <p>{message}</p>
+                <a href={link}>This is link!</a>
             </div>    
         )
         ReactDOM.render(el, dom)
