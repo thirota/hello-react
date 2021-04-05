@@ -1,14 +1,25 @@
-let counter = 0;
-// 組み込み用タグの取得
 let dom = document.querySelector("#root");
-doCount();
-
-function doCount() {
-    counter++;
-    // 仮想DOM Element作成
-    let element = React.createElement(
-        'p', {}, 'count: ' + counter
-    );
-    // レンダリング実行
-    ReactDOM.render(element, dom);
-}
+let element = React.createElement(
+    'div', {}, [
+        React.createElement(
+            'h2', {}, "Hello!"
+        ),
+        React.createElement(
+            'h3', {}, "React sample page."
+        ),
+        React.createElement(
+            'ul', {}, [
+                React.createElement(
+                    'li', {}, "First item."
+                ),
+                React.createElement(
+                    'li', {}, "Second item."
+                ),
+                React.createElement(
+                    'li', {}, "Third item."                    
+                ),
+            ]
+        ),
+    ]
+);
+ReactDOM.render(element, dom);
