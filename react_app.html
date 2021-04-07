@@ -50,6 +50,12 @@
         {zip:300, address:"Osaka"},
     ]
 
+    let site = {
+        url:'https://www.google.com',
+        title:'Google',
+        caption:'Google site desuyo!'
+    }
+
     let el = (
         <div className="alert alert-primary">
             <h2>{title}</h2>
@@ -71,6 +77,17 @@
                 <li className="list-group-item">{value.address}({value.zip})</li>                                    
             ))}
             </ul>
+            <div className="card mt-4">
+                <div className="card-header">
+                    {site.title}
+                </div>
+                <div className="card-body">
+                    {site.caption}
+                </div>
+                <div className="card-footer">
+                    <a href={site.url}>{site.title}へ</a>
+                </div>
+            </div>
         </div>
     )
     ReactDOM.render(el, dom);
