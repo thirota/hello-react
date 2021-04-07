@@ -44,6 +44,12 @@
         <li className="list-group-item">Three</li>
     ]
 
+    let addresses = [
+        {zip:100, address:"Sapporo"},
+        {zip:200, address:"Tokyo"},
+        {zip:300, address:"Osaka"},
+    ]
+
     let el = (
         <div className="alert alert-primary">
             <h2>{title}</h2>
@@ -61,7 +67,9 @@
             </div>
         }
             <ul className="list-group mt-4">
-                {data}
+            {addresses.map((value)=>(
+                <li className="list-group-item">{value.address}</li>                                    
+            ))}
             </ul>
         </div>
     )
