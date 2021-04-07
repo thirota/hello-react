@@ -19,6 +19,7 @@
     let title = "新タイトル"
     let message = "新しいメッセージ"
     let link = "https://www.google.com"
+    let flg = true
 
     const msg_style = {
         fontSize:"20pt",
@@ -37,17 +38,18 @@
         return <p style={style}>{msg}</p>
     }
 
-
     let el = (
         <div className="alert alert-primary">
             <h2>{title}</h2>
             <p style={msg_style}>{message}</p>
             <h5><a href={link}>This is link</a></h5>
+        {flg &&
             <div>
                 {printMessage('ほげほげ',36,'#fff')}
                 {printMessage('ふがふが',24,'#aaa')}
                 {printMessage('あほ侍',12,'#666')}
             </div>
+        }
         </div>
     )
     ReactDOM.render(el, dom);
