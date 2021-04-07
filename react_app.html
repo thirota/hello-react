@@ -26,11 +26,28 @@
         border:"1px solid blue"
     }
 
+    //JSXを返す関数
+    let printMessage = function(msg, size, color) {
+        const style = {
+            fontSize: size + "pt",
+            fontWeight: '700',
+            color: color,
+            border: "1px solid " + color
+        }
+        return <p style={style}>{msg}</p>
+    }
+
+
     let el = (
         <div className="alert alert-primary">
             <h2>{title}</h2>
             <p style={msg_style}>{message}</p>
             <h5><a href={link}>This is link</a></h5>
+            <div>
+                {printMessage('ほげほげ',36,'#fff')}
+                {printMessage('ふがふが',24,'#aaa')}
+                {printMessage('あほ侍',12,'#666')}
+            </div>
         </div>
     )
     ReactDOM.render(el, dom);
