@@ -20,10 +20,16 @@
     let message = "新しいメッセージ"
     let link = "https://www.google.com"
 
+    const msg_style = {
+        fontSize:"20pt",
+        color:"red",
+        border:"1px solid blue"
+    }
+
     let el = (
         <div className="alert alert-primary">
             <h2>{title}</h2>
-            <p>{message}</p>
+            <p style={msg_style}>{message}</p>
             <h5><a href={link}>This is link</a></h5>
         </div>
     )
