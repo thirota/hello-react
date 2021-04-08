@@ -21,6 +21,7 @@
     let link = "https://www.google.com"
     let flg = false
     var counter = 0
+    let in_val = ''
 
     const msg_style = {
         fontSize:"20pt",
@@ -55,6 +56,11 @@
         url:'https://www.google.com',
         title:'Google',
         caption:'Google site desuyo!'
+    }
+
+    let doChange = (event)=>{
+        in_val = event.target.value
+        message = 'Hello ' + in_val + ' !!'
     }
 
     let doAction = (event)=>{
@@ -93,7 +99,12 @@
                     </div>
                 </div>
             )()}
-            <h5 onClick={doAction} className="alert alert-primary">Counter: {counter}</h5>
+            <h5 className="alert alert-primary">Counter: {counter}</h5>
+            <div className="form-group">
+                <label>Input:</label>
+                <input type="text" className="form-control" id="input" onChange={doChange}/>
+                <button onClick={doAction} className="btn btn-primary">Click</button>
+            </div>
         </div>
         )
         ReactDOM.render(el, dom);
