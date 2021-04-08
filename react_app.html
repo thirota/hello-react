@@ -20,6 +20,7 @@
     let message = "新しいメッセージ"
     let link = "https://www.google.com"
     let flg = false
+    var counter = 0
 
     const msg_style = {
         fontSize:"20pt",
@@ -56,7 +57,10 @@
         caption:'Google site desuyo!'
     }
 
-    let el = (
+    setInterval(()=>{
+        counter++
+        flg = !flg
+        let el = (
         <div className="alert alert-primary">
             <h2>{title}</h2>
             <p style={msg_style}>{message}</p>
@@ -90,9 +94,12 @@
                     </div>
                 </div>
             )()}
+            <h5 className="alert alert-primary">Counter: {counter}</h5>
         </div>
-    )
-    ReactDOM.render(el, dom);
+        )
+        ReactDOM.render(el, dom);
+    }, 1000)
+
     </script>
 </body>    
 </html>
