@@ -18,9 +18,9 @@
     let message = "React component page."
 
     //Function component
-    function Welcome(props) {
-        return <div className={props.alert}>
-                <p className={props.fontSize}>Hello {props.name}!!</p>
+    function Welcome(p) {
+        return <div className={p.alert}>
+                <p className={p.fontSize}>Hello {p.name}!!</p>
             </div>
     }
 
@@ -30,6 +30,7 @@
             <h5 className="mb-4">{message}</h5>
             <Welcome name="Taro" fontSize="h2" alert="alert alert-primary" />
             <Welcome name="Hanako" fontSize="h5" alert="alert alert-dark" />
+            <Welcome name="Joe" fontSize="h4" alert="alert alert-secondary" />
         </div>
     )
 
