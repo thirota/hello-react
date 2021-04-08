@@ -57,10 +57,7 @@
         caption:'Google site desuyo!'
     }
 
-    setInterval(()=>{
-        counter++
-        flg = !flg
-        let el = (
+    let el = (
         <div className="alert alert-primary">
             <h2>{title}</h2>
             <p style={msg_style}>{message}</p>
@@ -96,7 +93,11 @@
             )()}
             <h5 className="alert alert-primary">Counter: {counter}</h5>
         </div>
-        )
+    )
+
+    setInterval(()=>{
+        counter++
+        flg = !flg
         ReactDOM.render(el, dom);
     }, 1000)
 
