@@ -15,103 +15,25 @@
     </div>
     <script type="text/babel">
     let dom = document.querySelector('#root')
+    let message = "React component page."
 
-    let title = "新タイトル"
-    let message = "新しいメッセージ"
-    let link = "https://www.google.com"
-    let flg = false
-    var counter = 0
-    let in_val = ''
-
-    const msg_style = {
-        fontSize:"20pt",
-        color:"red",
-        border:"1px solid blue"
-    }
-
-    //JSXを返す関数
-    let printMessage = function(msg, size, color) {
-        const style = {
-            fontSize: size + "pt",
-            fontWeight: '700',
-            color: color,
-            border: "1px solid " + color
-        }
-        return <p style={style}>{msg}</p>
-    }
-
-    let data = [
-        <li className="list-group-item">One</li>,
-        <li className="list-group-item">Two</li>,
-        <li className="list-group-item">Three</li>
-    ]
-
-    let addresses = [
-        {zip:100, address:"Sapporo"},
-        {zip:200, address:"Tokyo"},
-        {zip:300, address:"Osaka"},
-    ]
-
-    let site = {
-        url:'https://www.google.com',
-        title:'Google',
-        caption:'Google site desuyo!'
-    }
-
-    let doChange = (event)=>{
-        in_val = event.target.value
-        message = 'Hello ' + in_val + ' !!'
-    }
-
-    let doAction = (event)=>{
-        counter++
-        let el = (
-        <div className="alert alert-primary">
-            <h2>{title}</h2>
-            <p style={msg_style}>{message}</p>
-            <h5><a href={link}>This is link</a></h5>
-        {flg ?
-            <div>
-                {printMessage('ほげほげ',36,'#fff')}
-                {printMessage('ふがふが',24,'#aaa')}
-                {printMessage('あほ侍',12,'#666')}
+    //Function component
+    function Welcome(props) {
+        return <div className={props.alert}>
+                <p className={props.fontSize}>Hello {props.name}!!</p>
             </div>
-        :
-            <div>
-                {printMessage('HOGE',36,'#fff')}
-            </div>
-        }
-            <ul className="list-group mt-4">
-            {addresses.map((value)=>(
-                <li className="list-group-item">{value.address}({value.zip})</li>                                    
-            ))}
-            </ul>
-            {(()=>
-                <div className="card mt-4">
-                    <div className="card-header">
-                        {site.title}
-                    </div>
-                    <div className="card-body">
-                        {site.caption}
-                    </div>
-                    <div className="card-footer">
-                        <a href={site.url}>{site.title}へ</a>
-                    </div>
-                </div>
-            )()}
-            <h5 className="alert alert-primary">Counter: {counter}</h5>
-            <div className="form-group">
-                <label>Input:</label>
-                <input type="text" className="form-control" id="input" onChange={doChange}/>
-                <button onClick={doAction} className="btn btn-primary">Click</button>
-            </div>
+    }
+
+    //Display JSX
+    let el = (
+        <div>
+            <h5 className="mb-4">{message}</h5>
+            <Welcome name="Taro" fontSize="h2" alert="alert alert-primary" />
+            <Welcome name="Hanako" fontSize="h5" alert="alert alert-dark" />
         </div>
-        )
-        ReactDOM.render(el, dom);
-    }
+    )
 
-    doAction()
-
+    ReactDOM.render(el, dom);
     </script>
 </body>    
 </html>
