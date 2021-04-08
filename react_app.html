@@ -19,18 +19,31 @@
 
     //Function component
     function Welcome(p) {
-        return <div className={p.alert}>
-                <p className={p.fontSize}>Hello {p.name}!!</p>
+        return <div className="alert alert-primary">
+                <Calc classes={p.classes} number={p.number} />
             </div>
+    }
+
+    //Function component
+    function Calc(props) {
+        let total = 0
+        //XXX auto convert string to number?
+        for (let i = 1; i <= props.number; i++) {
+            total += i
+        }
+        return <p className={props.classes}>
+            1から{props.number}までの合計は{total}ですよ。
+            </p>
     }
 
     //Display JSX
     let el = (
         <div>
             <h5 className="mb-4">{message}</h5>
-            <Welcome name="Taro" fontSize="h2" alert="alert alert-primary" />
-            <Welcome name="Hanako" fontSize="h5" alert="alert alert-dark" />
-            <Welcome name="Joe" fontSize="h4" alert="alert alert-secondary" />
+            <Welcome number="10" classes="h3" />
+            <Welcome number="100" classes="h5" />
+            <Calc number="50" classes="h4" />
+            <Calc number="500" classes="h6" />
         </div>
     )
 
