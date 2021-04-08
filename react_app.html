@@ -57,7 +57,9 @@
         caption:'Google site desuyo!'
     }
 
-    let el = (
+    let doAction = (event)=>{
+        counter++
+        let el = (
         <div className="alert alert-primary">
             <h2>{title}</h2>
             <p style={msg_style}>{message}</p>
@@ -91,15 +93,13 @@
                     </div>
                 </div>
             )()}
-            <h5 className="alert alert-primary">Counter: {counter}</h5>
+            <h5 onClick={doAction} className="alert alert-primary">Counter: {counter}</h5>
         </div>
-    )
-
-    setInterval(()=>{
-        counter++
-        flg = !flg
+        )
         ReactDOM.render(el, dom);
-    }, 1000)
+    }
+
+    doAction()
 
     </script>
 </body>    
