@@ -14,40 +14,29 @@
         <div id="root">Wait...</div>
     </div>
     <script type="text/babel">
-    let dom = document.querySelector('#root')
-    let message = "React component page."
+        let dom = document.querySelector('#root')
+        let message = "React component page."
 
-    //Function component
-    function Welcome(p) {
-        return <div className="alert alert-primary">
-                <Calc classes={p.classes} number={p.number} />
-            </div>
-    }
+        class Hello extends React.Component {
+            // constructor(props) {
+            //     super(props)
+            // }
 
-    //Function component
-    function Calc(props) {
-        let total = 0
-        //XXX auto convert string to number?
-        for (let i = 1; i <= props.number; i++) {
-            total += i
+            render() {
+                return <div className="alert alert-primary">
+                    <p className="h4">Hello!!</p>
+                </div>
+            }
         }
-        return <p className={props.classes}>
-            1から{props.number}までの合計は{total}ですよ。
-            </p>
-    }
 
-    //Display JSX
-    let el = (
-        <div>
-            <h5 className="mb-4">{message}</h5>
-            <Welcome number="10" classes="h3" />
-            <Welcome number="100" classes="h5" />
-            <Calc number="50" classes="h4" />
-            <Calc number="500" classes="h6" />
-        </div>
-    )
+        let el = (
+            <div>
+                <h5 className="mb-4">{message}</h5>
+                <Hello />
+            </div>
+        )
 
-    ReactDOM.render(el, dom);
+        ReactDOM.render(el, dom);
     </script>
 </body>    
 </html>
